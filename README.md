@@ -1,11 +1,8 @@
-# push411
+## Description
 
-This is the template for a PushGP system for Hamilton's CS 411: Genetic Programming class.
+This implements a genetic programming approach to solve the PF Max problem devised by Massey et al (https://doi.org/10.1007/978-3-540-24855-2_66) through the creation of Push style programs. Push programs consist of quantum gates and control structure elements so that they create resultant quantum programs which can be evaluted as solutions. 
 
 ## Usage
 
-There are two ways to run the main PushGP function:
-
-1. Load `core.clj` into the interpreter, and then run `(main)`.
-2. From the command line, run `clj -X push411.core/main`.
+-- UPDATING NEEDS TO BE DONE --
 
