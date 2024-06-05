@@ -1,7 +1,7 @@
-(ns push411.qgate
+(ns q_gp.qgate
   (:require [clojure.math.numeric-tower :as math] 
             [clojure.core.matrix :as m]
-            [push411.complex :as complex]
+            [q_gp.complex :as complex]
             ))
 
 (comment

@@ -1,7 +1,7 @@
 ;; Outside library needed to run the project
 ;; Library can be found at, https://github.com/mikera/core.matrix.complex
 
-(ns push411.complex
+(ns q_gp.complex
   (:require [clojure.core.matrix.protocols :as mp]
             [clojure.core.matrix :as m]
             [complex.core :as c]

@@ -1,7 +1,7 @@
-(ns push307.core-test
+(ns q_gp.core-test
   (:require [clojure.test :refer [deftest is]]
-            [push411.core :as pushGP]
-            [push411.qgate :as qgate]
+            [q_gp.core :as pushGP]
+            [q_gp.qgate :as qgate]
             [clojure.core.matrix :as m]))
 
 (comment

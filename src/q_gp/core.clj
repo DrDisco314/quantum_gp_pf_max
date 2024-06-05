@@ -1,5 +1,5 @@
-(ns push411.core
-  (:require [push411.qgate :as qgate]
+(ns q_gp.core
+  (:require [q_gp.qgate :as qgate]
             [clojure.core.matrix :as m]
             [clojure.math.combinatorics :as combo]
             [clojure.math.numeric-tower :as math]))
