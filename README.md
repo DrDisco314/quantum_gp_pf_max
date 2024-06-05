@@ -19,7 +19,7 @@ Lastly, from a REPL (such as Calva) you can also just make a function call to th
 
 This project includes code from the following source:
 
-- **[Mikera](URL to author's profile)**: [https://github.com/mikera/core.matrix.complex?tab=EPL-1.0-1-ov-file]
+- **[Mikera](https://github.com/mikera)**: [https://github.com/mikera/core.matrix.complex?tab=EPL-1.0-1-ov-file]
   - License: [Eclipse Public License - v 1.0]
 
 The original code has been integrated into this project with permission/compliance with the original license.
