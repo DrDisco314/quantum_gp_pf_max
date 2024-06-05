@@ -3,16 +3,14 @@
 This implements a genetic programming approach to solve the PF Max problem devised by Massey et al (https://doi.org/10.1007/978-3-540-24855-2_66) through the creation of Push style programs. Push programs consist of quantum gates and control structure elements so that they create resultant quantum programs which can be evaluted as solutions. 
 
 ## Usage
-
--- STILL BEING UPDATED --
 To begin a GP run:
 
-From the command line you can run:
-  clj -X push411.core/main
+From the command line navigate to the directory /quantum_gp_pf_max. Then, you can run:
+  clj -X gp.core/main
 
-Additionally, if you want to pass command line arguments as a map to args, you can run something like this to alter the parameters of the GP run:
-  clj -X push411.core/main :selection :lexicase
+This will make a function call to the main GP call, starting the training of a population of programs.
 
-From a REPL you can also just make a function call to the main function of core.clj
+Additionally, if you want to pass command line arguments as a map to args (changing the parameters of the GP run), you can run something like this to alter the parameters of the GP run:
+  clj -X gp.core/main :selection :lexicase
 
-
+Lastly, from a REPL (such as Calva) you can also just make a function call to the main function of core.clj after loading the contents of quantum_gp_pf_max/src/gp.
