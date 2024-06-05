@@ -1,5 +1,5 @@
-(ns q_gp.core
-  (:require [q_gp.qgate :as qgate]
+(ns gp.core
+  (:require [gp.qgate :as qgate]
             [clojure.core.matrix :as m]
             [clojure.math.combinatorics :as combo]
             [clojure.math.numeric-tower :as math]))
