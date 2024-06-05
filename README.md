@@ -14,3 +14,12 @@ Additionally, if you want to pass command line arguments as a map to args (chang
   clj -X gp.core/main :selection :lexicase
 
 Lastly, from a REPL (such as Calva) you can also just make a function call to the main function of core.clj after loading the contents of quantum_gp_pf_max/src/gp.
+
+## Credits
+
+This project includes code from the following source:
+
+- **[Mikera](URL to author's profile)**: [https://github.com/mikera/core.matrix.complex?tab=EPL-1.0-1-ov-file]
+  - License: [Eclipse Public License - v 1.0]
+
+The original code has been integrated into this project with permission/compliance with the original license.
