@@ -2,6 +2,8 @@
 
 This implements a genetic programming approach to solve the PF Max problem devised by Massey et al (https://doi.org/10.1007/978-3-540-24855-2_66) through the creation of Push style programs. Push programs consist of quantum gates and control structure elements so that they create resultant quantum programs which can be evaluted as solutions. 
 
+When the program is ran, a population of quantum programs is created and undergo parent selection and crossover/mutation to create programs for the next generation. This is done either until a solution is found or a target number of generations is reached.
+
 ## Usage
 To begin a GP run:
 
