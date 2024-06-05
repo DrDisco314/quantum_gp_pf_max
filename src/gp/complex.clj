@@ -1,5 +1,13 @@
-;; Outside library needed to run the project
-;; Library can be found at, https://github.com/mikera/core.matrix.complex
+;; File: complex.clj
+;; Original Author: Mikera
+;; Original Repository: https://github.com/mikera/core.matrix.complex
+;; License: Eclipse Public License - v 1.0
+;;
+;; This file is part of quantum_gp_pf_max
+;; Used with permission/compliance with the original license.
+;; Modifications: N/A
+
+;; Original code follows:
 
 (ns gp.complex
   (:require [clojure.core.matrix.protocols :as mp]
@@ -35,8 +43,8 @@
   (new-matrix-nd [m dims]
     (ComplexArray. (m/new-array dims) (m/new-array dims)))
   (construct-matrix [m data]
-    (ComplexArray. (push411.complex/real data)
-                   (push411.complex/imag data)))
+    (ComplexArray. (gp.complex/real data)
+                   (gp.complex/imag data)))
   (supports-dimensionality? [m dims]
     true)
 
@@ -69,32 +77,32 @@
     (c/complex (mp/get-0d (.real m)) (mp/get-0d (.imag m))))
   (set-0d!
     [m v]
-    (mp/set-0d! (.real m) (push411.complex/real v))
-    (mp/set-0d! (.imag m) (push411.complex/imag v)))
+    (mp/set-0d! (.real m) (gp.complex/real v))
+    (mp/set-0d! (.imag m) (gp.complex/imag v)))
 
   mp/PIndexedSetting
   (set-1d [m row v]
-    (ComplexArray. (mp/set-1d real row (push411.complex/real v))
-                   (mp/set-1d imag row (push411.complex/imag v))))
+    (ComplexArray. (mp/set-1d real row (gp.complex/real v))
+                   (mp/set-1d imag row (gp.complex/imag v))))
   (set-2d [m row column v]
-    (ComplexArray. (mp/set-2d real row column (push411.complex/real v))
-                   (mp/set-2d imag row column (push411.complex/imag v))))
+    (ComplexArray. (mp/set-2d real row column (gp.complex/real v))
+                   (mp/set-2d imag row column (gp.complex/imag v))))
   (set-nd [m indexes v]
-    (ComplexArray. (mp/set-nd real indexes (push411.complex/real v))
-                   (mp/set-nd imag indexes (push411.complex/imag v))))
+    (ComplexArray. (mp/set-nd real indexes (gp.complex/real v))
+                   (mp/set-nd imag indexes (gp.complex/imag v))))
   (is-mutable? [m]
     (mp/is-mutable? real))
 
   mp/PIndexedSettingMutable
   (set-1d! [m x v]
-    (mp/set-1d! real x (push411.complex/real v))
-    (mp/set-1d! imag x (push411.complex/imag v)))
+    (mp/set-1d! real x (gp.complex/real v))
+    (mp/set-1d! imag x (gp.complex/imag v)))
   (set-2d! [m x y v]
-    (mp/set-2d! real x y (push411.complex/real v))
-    (mp/set-2d! imag x y (push411.complex/imag v)))
+    (mp/set-2d! real x y (gp.complex/real v))
+    (mp/set-2d! imag x y (gp.complex/imag v)))
   (set-nd! [m indexes v]
-    (mp/set-nd! real indexes (push411.complex/real v))
-    (mp/set-nd! imag indexes (push411.complex/imag v)))
+    (mp/set-nd! real indexes (gp.complex/real v))
+    (mp/set-nd! imag indexes (gp.complex/imag v)))
 
   mp/PTypeInfo
   (element-type [m]
@@ -102,7 +110,7 @@
 
   Object
   (toString [m]
-    (str "#complex/complex-array [" (push411.complex/real m) ", " (push411.complex/imag m) "]"))
+    (str "#complex/complex-array [" (gp.complex/real m) ", " (gp.complex/imag m) "]"))
 
   mp/PReshaping
   (reshape [m shape]
@@ -119,59 +127,59 @@
     (ComplexArray.
      (mp/add-scaled
       (mp/matrix-multiply
-       (push411.complex/real m)
-       (push411.complex/real a))
+       (gp.complex/real m)
+       (gp.complex/real a))
       -1
       (mp/matrix-multiply
-       (push411.complex/imag m)
-       (push411.complex/imag a)))
+       (gp.complex/imag m)
+       (gp.complex/imag a)))
      (mp/matrix-add
       (mp/matrix-multiply
-       (push411.complex/real m)
-       (push411.complex/imag a))
+       (gp.complex/real m)
+       (gp.complex/imag a))
       (mp/matrix-multiply
-       (push411.complex/imag m)
-       (push411.complex/real a)))))
+       (gp.complex/imag m)
+       (gp.complex/real a)))))
 
   mp/PMatrixAdd
   (matrix-add [m a]
-    (ComplexArray. (mp/matrix-add (push411.complex/real m)
-                                  (push411.complex/real a))
-                   (mp/matrix-add (push411.complex/imag m)
-                                  (push411.complex/imag a))))
+    (ComplexArray. (mp/matrix-add (gp.complex/real m)
+                                  (gp.complex/real a))
+                   (mp/matrix-add (gp.complex/imag m)
+                                  (gp.complex/imag a))))
 
   mp/PTranspose
   (transpose [m]
-    (ComplexArray. (mp/transpose (push411.complex/real m))
-                   (mp/transpose (push411.complex/imag m))))
+    (ComplexArray. (mp/transpose (gp.complex/real m))
+                   (mp/transpose (gp.complex/imag m))))
 
   mp/PMatrixScaling
   (scale [m a]
     (cond
-      (number? a) (ComplexArray. (mp/scale (push411.complex/real m) a)
-                                 (mp/scale (push411.complex/imag m) a))
+      (number? a) (ComplexArray. (mp/scale (gp.complex/real m) a)
+                                 (mp/scale (gp.complex/imag m) a))
       (instance? Complex a) (ComplexArray.
                              (mp/matrix-sub
-                              (mp/scale (push411.complex/real m)
+                              (mp/scale (gp.complex/real m)
                                         (c/real-part a))
-                              (mp/scale (push411.complex/imag m)
+                              (mp/scale (gp.complex/imag m)
                                         (c/imaginary-part a)))
                              (mp/matrix-add
-                              (mp/scale (push411.complex/imag m)
+                              (mp/scale (gp.complex/imag m)
                                         (c/real-part a))
-                              (mp/scale (push411.complex/real m)
+                              (mp/scale (gp.complex/real m)
                                         (c/imaginary-part a))))
       :else (error "Unable to multiply " (class a) " with a Complex value")))
   (pre-scale [m a]
     (cond
-      (number? a) (ComplexArray. (mp/scale (push411.complex/real m) a)
-                                 (mp/scale (push411.complex/imag m) a))
+      (number? a) (ComplexArray. (mp/scale (gp.complex/real m) a)
+                                 (mp/scale (gp.complex/imag m) a))
       :else (error "Unable to multiply " (class a) " with a Complex value")))
 
   mp/PMatrixOps
   (trace [m]
-    (let [real-trace (m/trace (push411.complex/real m))
-          imag-trace (m/trace (push411.complex/imag m))]
+    (let [real-trace (m/trace (gp.complex/real m))
+          imag-trace (m/trace (gp.complex/imag m))]
       (complex real-trace imag-trace)))
   (determinant [m]
     "Calculates the determinant of a matrix directly." ;; TODO: Can optimizations be made?
@@ -207,8 +215,8 @@
     optimized implementation of the matrix inverse for real numbers. This allows us to take
     advantage of how the complex numbers are stored in the array (two seperate arrays).
     If the matrix is singular, it returns an exception"
-    (let [A (push411.complex/real m)
-          C (push411.complex/imag m)
+    (let [A (gp.complex/real m)
+          C (gp.complex/imag m)
           r0 (m/inner-product (m/inverse A) C)
           y11 (m/inverse (m/add (m/inner-product C r0) A))
           y01 (m/inner-product r0 y11)]
@@ -216,15 +224,15 @@
 
   mp/PMatrixProducts
   (inner-product [m a]
-    (ComplexArray. (mp/add-scaled (mp/inner-product (push411.complex/real m)
-                                                    (push411.complex/real a))
-                                  (mp/inner-product (push411.complex/imag m)
-                                                    (push411.complex/imag a))
+    (ComplexArray. (mp/add-scaled (mp/inner-product (gp.complex/real m)
+                                                    (gp.complex/real a))
+                                  (mp/inner-product (gp.complex/imag m)
+                                                    (gp.complex/imag a))
                                   -1)
-                   (mp/matrix-add (mp/inner-product (push411.complex/real m)
-                                                    (push411.complex/imag a))
-                                  (mp/inner-product (push411.complex/imag m)
-                                                    (push411.complex/real a)))))
+                   (mp/matrix-add (mp/inner-product (gp.complex/real m)
+                                                    (gp.complex/imag a))
+                                  (mp/inner-product (gp.complex/imag m)
+                                                    (gp.complex/real a)))))
 
   mp/PGenericValues
   (generic-zero [m] "Generic 'zero' value for numerical arrays. Must satisfy (equals m (add m zero))."
@@ -368,9 +376,9 @@
   "Returns the Hermitian Transpose (complex conjugate transpose) of the matrix"
   [m]
   (m/transpose
-   (push411.complex/complex-array
-    (push411.complex/real m)
-    (m/negate (push411.complex/imag m)))))
+   (gp.complex/complex-array
+    (gp.complex/real m)
+    (m/negate (gp.complex/imag m)))))
 
 ;; ======================================================================
 ;; Print methods for complex types
