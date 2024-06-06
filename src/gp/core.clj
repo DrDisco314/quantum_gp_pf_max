@@ -856,10 +856,10 @@ Best errors: (117 96 77 60 45 32 21 12 5 0 3 4 3 0 5 12 21 32 45 60 77)
 ;; The main function call
 ;; You can call this in a REPL, or alternatively from the command line
 ;; by running:
-;;   clj -X push411.core/main
+;;   clj -X gp.core/main
 ;; Additionally, if you want to pass command line arguments as a map to args,
 ;; you can run something like:
-;;   clj -X push411.core/main :selection :lexicase
+;;   clj -X gp.core/main :selection :lexicase
 (defn main
   "Runs push-gp, giving it a map of arguments."
   ([] (main {}))
