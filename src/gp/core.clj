@@ -732,7 +732,7 @@ Best errors: (117 96 77 60 45 32 21 12 5 0 3 4 3 0 5 12 21 32 45 60 77)
   "Takes in a fitness case expressed as a permutation of [0 1 2 3] and encodes
    the permutation in a quantum state expressed as a vector of size, 2^(size permutation)
    where all elements are zero except for the encoding of the permutation - whose elements
-   are all given equal probability to be measured, 0.5
+   are all put in an equal superposition and have amplitude, 0.5
    To encode the state, if the permutation is [3 1 2 0] then the encoding would be,
     f(0) = 3    f(1) = 1    f(2) = 2    f(3) = 0
    [0 0 0 0.5 | 0 0.5 0 0 | 0 0 0.5 0 | 0.5 0 0 0]"
